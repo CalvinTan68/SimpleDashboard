@@ -1,0 +1,28 @@
+@import "./Styles/reset";
+@import "./Styles/variables";
+
+// Component Styling
+@import "./Styles/sidebar";
+@import "./Styles/popup";
+
+body {
+  margin: 0;
+  background: $lightpurple;
+}
+
+.ant-layout {
+  background: $lightpurple !important;
+  margin: 10px 15px 10px 55px;
+}
+
+.border-none {
+  border: none !important;
+}
+
+.debit {
+  color: #008000;
+}
+
+.credit {
+  color: #ff0000;
+}
