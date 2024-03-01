@@ -1,6 +1,6 @@
 import { Divider, Typography } from "antd";
 
-function PageHeader({ title, divider, subtitle, extra }) {
+function PageHeader({ title, divider, subtitle }) {
   return (
     <>
       {title ? <Typography.Title>{title}</Typography.Title> : null}
