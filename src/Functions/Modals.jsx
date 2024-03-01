@@ -1,4 +1,4 @@
-import { List, Modal } from "antd";
+import { Input, List, Modal } from "antd";
 
 const healthGuides = [
   "Routinely change your password",
@@ -32,6 +32,28 @@ export const healthGuide = () => {
       </>
     ),
     okText: "Close",
+    centered: true,
+  });
+};
+
+export const changePassword = () => {
+  Modal.warning({
+    title: "Changing password",
+    content: (
+      <>
+        <Input.Password placeholder="Enter your new password" />
+      </>
+    ),
+    okText: "Update",
+    centered: true,
+  });
+};
+
+export const deleteAccount = () => {
+  Modal.warning({
+    title: "Are you sure you want to delete your account?",
+    okText: "Delete",
+    cancelText: "Cancel",
     centered: true,
   });
 };

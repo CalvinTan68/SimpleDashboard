@@ -24,17 +24,21 @@ function AccountHealth() {
 
   return (
     <>
-      <Card title="Account Health">
+      <Card
+        title="Account Health"
+        extra={
+          <Button
+            size="small"
+            icon={<InfoCircleFilled />}
+            shape="circle"
+            onClick={healthGuide}
+          />
+        }
+      >
         <Space size="large">
-          <Progress type="circle" percent={percentage} />
+          <Progress type="circle" size="small" percent={percentage} />
           <Space>
             <Typography.Text>Your account is {health}</Typography.Text>
-            <Button
-              size="small"
-              icon={<InfoCircleFilled />}
-              shape="circle"
-              onClick={healthGuide}
-            />
           </Space>
         </Space>
       </Card>

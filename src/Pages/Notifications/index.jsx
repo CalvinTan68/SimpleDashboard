@@ -1,36 +1,30 @@
-import { Table } from "antd";
+import { DeleteOutlined, EyeOutlined } from "@ant-design/icons";
+import { Button, List } from "antd";
 import dayjs from "dayjs";
 import React from "react";
 import PageHeader from "../../Components/PageHeader";
 import { notifications } from "../../Data/notifications";
 
 function Notifications() {
-  const notificationTableColumns = [
-    {
-      key: "notification",
-      title: "Notification",
-      dataIndex: "notification",
-      width: "50%",
-    },
-    {
-      key: "createdAt",
-      title: "Timestamp",
-      dataIndex: "createdAt",
-      width: "50%",
-      render: (createdAt) => {
-        return dayjs(createdAt).format("YYYY-MM-DD HH:mm:ss");
-      },
-    },
-  ];
   return (
     <>
       <PageHeader divider title="Notifications" />
-
-      <Table
-        rowKey="id"
+      <List
+        itemLayout="horizontal"
         dataSource={notifications}
-        columns={notificationTableColumns}
-        pagination={{ pageSize: 5, hideOnSinglePage: true }}
+        renderItem={(item) => (
+          <List.Item
+            actions={[
+              <Button shape="circle" icon={<EyeOutlined />} />,
+              <Button shape="circle" icon={<DeleteOutlined />} danger />,
+            ]}
+          >
+            <List.Item.Meta
+              title={item.notification}
+              description={dayjs(item.createdAt).format("YYYY-MM-DD HH:mm:ss")}
+            />
+          </List.Item>
+        )}
       />
     </>
   );

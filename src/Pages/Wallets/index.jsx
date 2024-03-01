@@ -1,50 +1,31 @@
-import { Table, Typography } from "antd";
+import { List, Typography } from "antd";
 import dayjs from "dayjs";
 import React from "react";
 import PageHeader from "../../Components/PageHeader";
 import { ownedCards } from "../../Data/wallets";
 
 function Wallets() {
-  const ownedCardsTableColumns = [
-    {
-      key: "cardLabel",
-      title: "Card Label",
-      dataIndex: "cardLabel",
-    },
-    {
-      key: "cardNumber",
-      title: "Card Number",
-      dataIndex: "cardNumber",
-      render: (cardNumber) => {
-        const spacedCardNumber = cardNumber
-          .replace(/\s/g, "")
-          .replace(/(.{4})/g, "$1 ")
-          .trim();
-        return (
-          <Typography.Paragraph copyable>
-            {spacedCardNumber}
-          </Typography.Paragraph>
-        );
-      },
-    },
-    {
-      key: "cardExp",
-      title: "Expired Date",
-      dataIndex: "cardExp",
-      render: (cardExp) => {
-        return dayjs(cardExp).format("MM/YY");
-      },
-    },
-  ];
   return (
     <>
       <PageHeader divider title="Wallets" />
 
-      <Table
-        rowKey="id"
+      <List
+        pagination={false}
+        itemLayout="horizontal"
         dataSource={ownedCards}
-        columns={ownedCardsTableColumns}
-        pagination={{ pageSize: 10, hideOnSinglePage: true }}
+        renderItem={(item) => (
+          <List.Item>
+            <List.Item.Meta
+              title={item.cardLabel}
+              description={
+                <Typography.Paragraph copyable>
+                  {item.cardNumber}
+                </Typography.Paragraph>
+              }
+            />
+            <span>Exp: {dayjs(item.cardExp).format("MM/YY")}</span>
+          </List.Item>
+        )}
       />
     </>
   );

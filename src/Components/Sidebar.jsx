@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import { Tooltip } from "antd";
 import { pageList } from "../Data/pageList";
 
+import { Space } from "antd";
 import { PiChats } from "react-icons/pi";
 import { logoutSuccessMessage } from "../Functions/Messages";
 import { comingSoon } from "../Functions/Modals";
@@ -19,15 +20,17 @@ function Sidebar() {
     <>
       <Sider collapsed className="sidebar">
         <div className="first-item">
-          <Typography.Title>S.</Typography.Title>
-          <Tooltip placement="right" title="Chat Support">
-            <Button
-              icon={<PiChats />}
-              shape="circle"
-              size="large"
-              onClick={comingSoon}
-            />
-          </Tooltip>
+          <Space direction="vertical">
+            <Typography.Title>S.</Typography.Title>
+            <Tooltip placement="right" title="Chat Support">
+              <Button
+                icon={<PiChats />}
+                shape="circle"
+                size="large"
+                onClick={comingSoon}
+              />
+            </Tooltip>
+          </Space>
         </div>
         <div className="second-item">
           <Menu
@@ -38,15 +41,17 @@ function Sidebar() {
           />
         </div>
         <div className="third-item">
-          <Avatar size={50} icon={<UserOutlined />} />
-          <Tooltip placement="right" title="Logout">
-            <Button
-              icon={<LogoutOutlined />}
-              shape="circle"
-              size="large"
-              onClick={logoutSuccessMessage}
-            />
-          </Tooltip>
+          <Space direction="vertical">
+            <Avatar size={45} icon={<UserOutlined />} />
+            <Tooltip placement="right" title="Logout">
+              <Button
+                icon={<LogoutOutlined />}
+                shape="circle"
+                size="large"
+                onClick={logoutSuccessMessage}
+              />
+            </Tooltip>
+          </Space>
         </div>
       </Sider>
     </>
