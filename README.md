@@ -18,4 +18,4 @@ Created on purpose for coding test. Not 100% same on the design, but i managed t
 
 # About Project
 
-Built with ReactJS-Vite with mostly ant.design components and icons, SCSS for stylings, and dayjs for datetime formatting.
+Built with ReactJS-Vite with mostly ant.design components and icons, SCSS for stylings, and dayjs for datetime formatting. The code is not looking that perfect, since it's still a mockup data, but will look a lot better with API integration with Axios. =
