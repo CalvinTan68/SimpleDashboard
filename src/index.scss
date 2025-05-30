@@ -4,3 +4,12 @@
 // Component Styling
 @import "./Styles/sidebar";
 @import "./Styles/popup";
+
+@import "./Styles/authscreen";
+
+.spin-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
