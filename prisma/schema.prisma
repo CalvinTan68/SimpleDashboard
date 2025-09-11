@@ -1,0 +1,68 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DATABASE_URL")
+}
+
+// Fund Source model
+model FundSource {
+  id           String        @id @default(uuid())
+  userId       String        @map("user_id")
+  name         String
+  type         FundSourceType
+  createdAt    DateTime      @default(now()) @map("created_at")
+  updatedAt    DateTime      @updatedAt @map("updated_at")
+  
+  // Relations
+  transactions Transaction[]
+  
+  @@index([userId])
+  @@map("fund_sources")
+}
+
+// Transaction model
+model Transaction {
+  id           String        @id @default(uuid())
+  userId       String        @map("user_id")
+  fundSourceId String?       @map("fund_source_id")
+  date         DateTime      @default(now()) @db.Date
+  description  String
+  type         TransactionType
+  category     String?
+  amount       Decimal       @db.Decimal(10, 2)
+  createdAt    DateTime      @default(now()) @map("created_at")
+  updatedAt    DateTime      @updatedAt @map("updated_at")
+  
+  // Relations
+  fundSource   FundSource?   @relation(fields: [fundSourceId], references: [id], onDelete: SetNull)
+  
+  @@index([userId])
+  @@index([fundSourceId])
+  @@index([date])
+  @@map("transactions")
+}
+
+// Enums
+enum FundSourceType {
+  bank
+  cash
+  credit
+  investment
+  other
+}
+
+enum TransactionType {
+  income
+  expense
+}
+
+// Note: Since we're using Supabase Auth, we don't need to define a User model.
+// The userId fields reference auth.users(id) from Supabase Auth.
+// Row Level Security (RLS) will be handled through Supabase dashboard or SQL commands.

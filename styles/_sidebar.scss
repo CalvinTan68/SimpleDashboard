@@ -1,0 +1,35 @@
+.sidebar {
+  overflow: auto !important;
+  height: 100dvh !important;
+  position: fixed !important;
+  left: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  text-align: center !important;
+  background: $white !important;
+  
+  .ant-layout-sider-children {
+    display: grid;
+    align-content: space-around;
+    height: 100dvh;
+    width: 80px;
+  }
+  
+  .second-item,
+  .third-item {
+    .ant-menu {
+      width: 50px !important;
+      margin: 0 auto !important;
+      border: none !important;
+      border-radius: 9999px !important;
+      background: $lightpurple !important;
+      * {
+        border-radius: 9999px !important;
+        &.ant-menu-item-selected {
+          background: $purple;
+          color: $white;
+        }
+      }
+    }
+  }
+}

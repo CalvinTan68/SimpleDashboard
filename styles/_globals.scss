@@ -1,0 +1,31 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0 !important;
+}
+
+* {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  background: $lightpurple;
+}
+
+.ant-layout {
+  background: $lightpurple !important;
+  margin: 10px 15px 10px 55px;
+}
+
+.debit {
+  color: #008000;
+}
+
+.credit {
+  color: #ff0000;
+}

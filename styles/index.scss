@@ -1,0 +1,15 @@
+@import "variables";
+@import "globals";
+
+// Component Styling
+@import "sidebar";
+@import "popup";
+
+@import "authscreen";
+
+.spin-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
