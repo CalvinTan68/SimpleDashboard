@@ -1,8 +1,9 @@
-.popup {
-  &.premium {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 250px;
-  }
+.popup-container {
+    .ant-modal-content {
+        border-radius: 8px;
+    }
+    
+    .ant-modal-header {
+        border-bottom: 1px solid #f0f0f0;
+    }
 }
