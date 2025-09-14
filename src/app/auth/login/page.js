@@ -107,6 +107,30 @@ const Login = () => {
                     </Form.Item>
                 </Form>
 
+                {/* Test Credentials Info Box */}
+                <Card
+                    size="small"
+                    style={{
+                        marginTop: 24,
+                        backgroundColor: '#f6ffed',
+                        borderColor: '#b7eb8f'
+                    }}
+                    title={
+                        <Text strong style={{ color: '#52c41a' }}>
+                            Demo Credentials
+                        </Text>
+                    }
+                >
+                    <div style={{ fontSize: '12px', color: '#666' }}>
+                        <div style={{ marginBottom: '4px' }}>
+                            <Text strong>Email:</Text> demo@example.com
+                        </div>
+                        <div>
+                            <Text strong>Password:</Text> demo123456
+                        </div>
+                    </div>
+                </Card>
+
                 <div className="footer-text">
                     <Text>Don't have an account? </Text>
                     <Link href="/auth/register">Register now</Link>
